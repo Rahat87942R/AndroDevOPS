@@ -25,7 +25,8 @@ steps:
   displayName: 'Clone Scripts'
 - script: |
     cd scripts
-  displayName: 'Enter Scripts Directory'
-- script: |
     bash setup/android_build_env.sh
-  displayName: 'Build Environment'
+  displayName: 'Enter Scripts Directory and build it'
+- script: |
+    pwd
+  displayName: 'See path'
