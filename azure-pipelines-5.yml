@@ -1,0 +1,38 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: Ubuntu-20.04
+
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
+- script: |
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line script'
+- script: |
+    df -h
+  displayName: 'show storage'
+- script: |
+    free
+  displayName: 'Show Ram'
+- script: |
+    sudo apt-get install git -y
+  displayName: 'Install Git'
+- script: |
+    git clone https://github.com/akhilnarang/scripts
+  displayName: 'Clone Scripts'
+- script: |
+    cd scripts
+    bash setup/android_build_env.sh
+  displayName: 'Enter Scripts Directory and build it'
+- script: |
+    pwd
+  displayName: 'See path'
